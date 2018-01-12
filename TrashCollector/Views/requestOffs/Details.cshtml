@@ -1,0 +1,50 @@
+﻿@model TrashCollector.Models.requestOff
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>requestOff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requestStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requestStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.requestEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requestEnd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

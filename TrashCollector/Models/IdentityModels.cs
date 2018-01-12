@@ -20,6 +20,7 @@ namespace TrashCollector.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+      
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -29,5 +30,17 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.Address> Addresses { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.requestform> requestforms { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.payment> payments { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.Amount> Amounts { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.info> infoes { get; set; }
+
+        public System.Data.Entity.DbSet<TrashCollector.Models.requestOff> requestOffs { get; set; }
     }
 }

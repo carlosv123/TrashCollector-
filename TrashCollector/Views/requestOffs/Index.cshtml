@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TrashCollector.Models.requestOff>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer Request Off forms</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.requestStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.requestEnd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.requestStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.requestEnd)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,107 @@
+﻿@model TrashCollector.Models.requestform
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>requestform</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nopickupstart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nopickupstart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nopickupend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nopickupend)
+        </dd>
+
+    </dl>
+</div>
+<div>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+
+    #floating-panel {
+        position: absolute;
+        z-index: 5;
+        background-color: #fff;
+        border: 1px solid #999;
+        text-align: center;
+    }
+</style>
+<div id="floating-panel">
+    <input id="address" type="text" value=Milwaukee>
+    <input id="submit" type="button" value="Geocode">
+</div>
+<div id="map"></div>
+<script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: -34.397, lng: 150.644}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6z_-CGrdndzcnETXIFfW0XcIPNUZkTgc-egHSB1Nc&callback=initMap">
+</script>
+
+</div>
+<!-- API KEY AIzaSyCZVALr-fT0-klCyHMKBeSsvG-egHSB1Nc-->
+
+
+<!--<h3>Customer's Place</h3>
+        <div id="map"></div>
+        <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6z_-CGrdndzcnETXIFfW0XcIPNUZkTgc-egHSB1Nc&callback=initMap">
+        </script>-->
+
